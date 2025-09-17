@@ -1,9 +1,14 @@
-FROM node
+FROM node:22  # or any specific version you prefer
+ 
 WORKDIR /app
-
-COPY . .
-EXPOSE 3000
-
+ 
 COPY package*.json ./
-
-ENTRYPOINT start npm
+RUN npm install
+ 
+COPY . .
+ 
+EXPOSE 3000
+ 
+CMD ["npm", "start"]
+ 
+ 
